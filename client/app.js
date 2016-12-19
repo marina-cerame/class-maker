@@ -1,8 +1,8 @@
-var app = angular.module('app', ['ngRoute']);
+var classMaker = angular.module('classMaker', ['ngRoute']);
 
-// app.config($routeProvider, $httpProvider){
-//   $routeProvider
-//     .when('/login', {
-//       templateUrl: '/login/login.html',
-//     })
-// };
+classMaker.config(function($routeProvider, $httpProvider) {
+  $routeProvider
+    .when('/login', {
+      templateUrl: '/login/login.html',
+    });
+});

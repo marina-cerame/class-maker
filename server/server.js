@@ -5,7 +5,9 @@ var morgan = require('morgan');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 
-mongoose.connect('mongodb://heroku_r9k66dzj:gv6pufkskrqnmc7srbr6haop7h@ds139448.mlab.com:39448/heroku_r9k66dzj', function(error) {
+var port = process.env.PORT || 8080;
+
+mongoose.connect(port, function(error) {
   if (error) {
     console.log('MONGO URI ERROR', error);
   } else {
@@ -21,8 +23,8 @@ app.use(bodyParser.urlencoded({'exteded': 'true'}));
 app.use(bodyParser.json());
 app.use(bodyParser.json({ type: 'application/vnd.api+json'}));
 
-app.listen(process.env.PORT || 8080);
-console.log('App listening on port 8080');
+app.listen(port);
+console.log('App listening on port ' + port);
 
 
 app.get('/', function(request, response) {

@@ -7,7 +7,7 @@ var methodOverride = require('method-override');
 
 var port = process.env.PORT || 8080;
 
-mongoose.connect(port, function(error) {
+mongoose.connect(process.env.MONGODB_URI, function(error) {
   if (error) {
     console.log('MONGO URI ERROR', error);
   } else {

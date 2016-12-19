@@ -5,7 +5,13 @@ var morgan = require('morgan');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 
-mongoose.connect(process.env.MONGODB_URI);
+mongoose.connect(process.env.MONGODB_URI, function(error) {
+  if (error) {
+    console.log('MONGO URI ERROR', error);
+  } else {
+    console.log('CONNECTED TO MONGO URI')
+  }
+});
 
 app.use(express.static(__dirname + '/client'));
 app.use(morgan('dev'));

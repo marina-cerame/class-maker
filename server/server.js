@@ -17,5 +17,5 @@ app.listen(8080);
 console.log('App listening on port 8080');
 
 app.get('/', function(request, response) {
-  response.sendfile('./public/index.html');
+  response.sendfile('./client/index.html');
 });

@@ -13,7 +13,7 @@ var methodOverride = require('method-override');
 //   }
 // });
 
-mongoose.connect('mongodb://localhost/mvp')
+mongoose.connect('mongodb://localhost/mvp');
 
 app.use(express.static(__dirname + '/client'));
 app.use(morgan('dev'));

@@ -1,16 +1,21 @@
 <!doctype html>
-<html>
+<html ng-app="app">
 
 <head>
   <title>MVP PROJECT</title>
 </head>
+  <body>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+    <script src="/app.js"></script>
 
+    <div>
+      <a href="#/login">Login</a>
+      HELLO WORLD
+    </div>
 
-<body>
-  <div>
-    HELLO WORLD
-  </div>
-</body>
+    <div ng-view></div>
 
+  </body>
 
 </html>

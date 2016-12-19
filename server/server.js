@@ -5,7 +5,7 @@ var morgan = require('morgan');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 
-mongoose.connect(process.env.MONGODB_URI, function(error) {
+mongoose.connect('mongodb://heroku_r9k66dzj:gv6pufkskrqnmc7srbr6haop7h@ds139448.mlab.com:39448/heroku_r9k66dzj', function(error) {
   if (error) {
     console.log('MONGO URI ERROR', error);
   } else {

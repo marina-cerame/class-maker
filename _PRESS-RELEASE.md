@@ -1,4 +1,4 @@
-# Project Name #
+# MVP #
 
 <!--
 > This material was originally posted [here](http://www.quora.com/What-is-Amazons-approach-to-product-development-and-product-management). It is reproduced here for posterities sake.
@@ -16,29 +16,36 @@ Oh, and I also like to write press-releases in what I call "Oprah-speak" for mai
 Once the project moves into development, the press release can be used as a touchstone; a guiding light. The product team can ask themselves, "Are we building what is in the press release?" If they find they're spending time building things that aren't in the press release (overbuilding), they need to ask themselves why. This keeps product development focused on achieving the customer benefits and not building extraneous stuff that takes longer to build, takes resources to maintain, and doesn't provide real customer benefit (at least not enough to warrant inclusion in the press release).
  -->
 
-## Heading ##
-  > Name the product in a way the reader (i.e. your target customers) will understand.
-  
+## Classroom Planner ##
+  > An app for managing classes and organizing seating charts
+
 ## Sub-Heading ##
-  > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+  > For teachers, to assist in generating seating charts
 
 ## Summary ##
-  > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+> This app allows teachers to create a classroom seating chart from their class
+lists, and to filter classes by different factors to assist in generating seating charts
 
 ## Problem ##
-  > Describe the problem your product solves.
+  > Tracking the different factors that may go into seating chart choices can be difficult
+  when done by hand.
 
 ## Solution ##
-  > Describe how your product elegantly solves the problem.
+  > By allowing a teacher to create a class list with relevant student data, we can quickly
+  sort and re-sort a class by any of that data.
 
 ## Quote from You ##
-  > A quote from a spokesperson in your company.
+  > "I would totally use this app."
+  -- Marina Cerame, former elementary music teacher
 
 ## How to Get Started ##
-  > Describe how easy it is to get started.
+  > Create an account to begin setting up your classrooms. Input the student data for your
+  class and generate a class view. You'll now have a desk for each student, organized by
+  whatever data you like!
 
 ## Customer Quote ##
-  > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+  > "Way better than sticky notes."
+  -- My friend Liz, who does all her seating charts with sticky notes like a nerd
 
 ## Closing and Call to Action ##
-  > Wrap it up and give pointers where the reader should go next.
+  > Try it. Please. It might actually work.

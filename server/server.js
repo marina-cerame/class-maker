@@ -5,7 +5,7 @@ var morgan = require('morgan');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 
-mongoose.connect('mongodb://localhost/mvp');
+mongoose.connect(process.env.MONGODB_URI);
 
 app.use(express.static(__dirname + '/client'));
 app.use(morgan('dev'));

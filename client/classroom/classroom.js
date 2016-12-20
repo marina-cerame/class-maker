@@ -8,8 +8,11 @@ angular.module('classMaker.classroom', [])
     };
 
     $scope.sortOrder = 'firstName';
-    
+
     $scope.setOrder = function(sort) {
+      if (sort === 'referrals') {
+        sort = '-referrals';
+      }
       return $scope.sortOrder = sort;
     };
 
@@ -34,4 +37,28 @@ angular.module('classMaker.classroom', [])
         $scope.classStudents = students;
       });
     };
+
+    $scope.seatingChart = {
+      'width': '610px',
+      'border': '1px solid black',
+      'height': '800px',
+      'padding': '5px'
+    };
+
+    $scope.desks = {
+      'width': '50px',
+      'height': '50px',
+      'border': '1px solid gray',
+      'padding': '1px',
+      'margin': '1px',
+      'float': 'left'
+    };
+
+    $scope.setRows = function(rows) {
+      rows = Number(rows);
+      let size = 600 - (rows * 4);
+      size = Math.floor(size / rows);
+      $scope.desks['width'] = size + 'px';
+    };
+
   });

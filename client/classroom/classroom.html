@@ -30,7 +30,14 @@
   <button ng-click="setOrder('average')">Average</button>
   <button ng-click="setOrder('referrals')">Referrals</button>
 
-  <pre>
-    {{ classStudents.data | json }}
-  </pre>
+  <form>
+      <input type="text" ng-model="rows" placeholder="Number of rows"/>
+      <button ng-click="setRows(rows)">Make Chart</button>
+  </form>
+
+  <div id="seatingChart"  ng-style="seatingChart">
+    <div ng-repeat="eachStudent in classStudents.data | orderBy:sortOrder" ng-style='desks'>
+      {{eachStudent.firstName}} {{eachStudent.lastName}}
+    </div>
+  </div>
 </div>

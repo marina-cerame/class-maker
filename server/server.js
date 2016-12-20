@@ -62,7 +62,7 @@ var findUser = Q.nbind(User.findOne, User);
 app.post('/api/users/signup', function(req, res, next) {
   var username = req.body.username;
   var password = req.body.password;
-  console.log('IN POST ROUTE');
+  console.log('IN POST ROUTE - CREATE USER');
 
   createUser({
     username: username,
@@ -71,5 +71,18 @@ app.post('/api/users/signup', function(req, res, next) {
     .then(function(user) {
       console.log(user);
       res.send('/classes.html');
+    });
+});
+
+app.post('/api/users/login', function(req, res, next) {
+  var username = req.body.username;
+  var password = req.body.password;
+  console.log('IN POST ROUTE - LOGIN');
+
+  findUser({username: username})
+    .then(function(user) {
+      console.log('FOUND USER', user);
+      res.send(user);
+
     });
 });

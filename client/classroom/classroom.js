@@ -7,6 +7,23 @@ angular.module('classMaker.classroom', [])
       className: $rootScope.thisClass
     };
 
+    $scope.sortOrder = 'firstName';
+    
+    $scope.setOrder = function(sort) {
+      return $scope.sortOrder = sort;
+    };
+
+    $scope.getStudents = function() {
+      $http({
+        method: 'POST',
+        url: '/api/students/getStudents',
+        data: {className: $rootScope.thisClass}
+      })
+      .then(function(students) {
+        $scope.classStudents = students;
+      });
+    };
+
     $scope.addStudent = function(student) {
       $http({
         method: 'POST',
@@ -14,10 +31,7 @@ angular.module('classMaker.classroom', [])
         data: student
       })
       .then(function(students) {
-        console.log(students);
         $scope.classStudents = students;
-        console.log($scope);
       });
-
     };
   });

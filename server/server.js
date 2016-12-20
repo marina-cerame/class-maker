@@ -157,3 +157,10 @@ app.post('/api/students/addStudent', function(req, res, next) {
       });
   });
 });
+
+app.post('/api/students/getStudents', function(req, res, next) {
+  getStudents({className: req.body.className})
+    .then(function(students) {
+      res.send(students);
+    });
+});

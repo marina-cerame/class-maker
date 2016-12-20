@@ -3,13 +3,14 @@
   <h4>{{thisClass}}</h4>
 
   <div id="classlist">
+    <button ng-click="getStudents()">Get Students</button>
     <table border='1px'>
       <tr>
         <td><b>Name</b></td>
         <td><b>Average</b></td>
         <td><b>Referrals</b></td>
       </tr>
-      <tr ng-repeat='eachStudent in classStudents.data'>
+      <tr ng-repeat='eachStudent in classStudents.data | orderBy:sortOrder'>
         <td>{{eachStudent.firstName}} {{eachStudent.lastName}}</td>
         <td>{{eachStudent.average}}</td>
         <td>{{eachStudent.referrals}}</td>
@@ -23,8 +24,13 @@
     <input type="text" ng-model="student.referrals" placeholder="Behavior Referrals" />
     <button ng-click='addStudent(student)'>submit</button>
   </form>
-</div>
+  Sort By:
+  <button ng-click="setOrder('firstName')">First Name</button>
+  <button ng-click="setOrder('lastName')">Last Name</button>
+  <button ng-click="setOrder('average')">Average</button>
+  <button ng-click="setOrder('referrals')">Referrals</button>
 
-<pre>
-  {{ classStudents.data | json }}
-</pre>
+  <pre>
+    {{ classStudents.data | json }}
+  </pre>
+</div>

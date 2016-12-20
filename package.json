@@ -5,6 +5,7 @@
   "main": "public/index.html",
   "dependencies": {
     "angular": "^1.6.0",
+    "angular-route": "^1.6.0",
     "body-parser": "^1.4.3",
     "express": "^4.13.4",
     "method-override": "^2.1.3",

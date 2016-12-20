@@ -1,8 +1,10 @@
 <div>
   <h2>SIGN UP</h2>
-  <form>
+  <form ng-app="myApp" ng-controller="loginController">
     <input type="text" ng-model="user.username" placeholder="username" /> <br />
     <input type="password" ng-model="user.password" placeholder="password"  /> <br />
-    <button>submit</button>
+    <button ng-click='signup(user)'>submit</button>
   </form>
+
+
 </div>

@@ -15,6 +15,8 @@ mongoose.connect(process.env.MONGODB_URI, function(error) {
   }
 });
 
+// require('./routes.js')(app, express);
+
 // mongoose.connect('mongodb://localhost/mvp');
 
 app.use(express.static('client'));
@@ -30,3 +32,54 @@ console.log('App listening on port ' + port);
 // app.get('/', function(request, response) {
 //   response.sendfile('./client/index.html');
 // });
+
+// SCHEMAS ========================================
+var UserSchema = new mongoose.Schema({
+  username: String,
+  password: String
+});
+
+var ClassSchema = new mongoose.Schema({
+  name: String
+});
+
+var StudentSchema = new mongoose.Schema({
+  firstName: String,
+  lastName: String,
+  average: Number,
+  referrals: Number
+});
+
+var User = mongoose.model('users', UserSchema);
+var Classroom = mongoose.model('classrooms', ClassSchema);
+var Student = mongoose.model('students', StudentSchema);
+
+// ROUTES ========================================
+var Q = require('q');
+var createUser = Q.nbind(User.create, User);
+
+app.post('/api/users/signup', function(req, res, next) {
+  var username = req.body.username;
+  var password = req.body.password;
+  console.log('IN POST ROUTE');
+
+  createUser({
+    username: username,
+    password: password
+  })
+    .then(function(user) {
+      console.log(user);
+      res.redirect('classes/classes.html');
+    });
+
+  // User.create({
+  //   username: username,
+  //   password: password
+  // }, function(err, data) {
+  //   console.log('hello');
+  //   if (err) {
+  //     console.log('USER CREATE ERROR', err);
+  //   }
+  //   res.send('HELLO');
+  // });
+});

@@ -1,8 +1,30 @@
-<div>
+<div ng-controller='classroomController'>
   <h2>CLASSROOM</h2>
   <h4>{{thisClass}}</h4>
+
+  <div id="classlist">
+    <table border='1px'>
+      <tr>
+        <td><b>Name</b></td>
+        <td><b>Average</b></td>
+        <td><b>Referrals</b></td>
+      </tr>
+      <tr ng-repeat='eachStudent in classStudents.data'>
+        <td>{{eachStudent.firstName}} {{eachStudent.lastName}}</td>
+        <td>{{eachStudent.average}}</td>
+        <td>{{eachStudent.referrals}}</td>
+      </tr>
+    </table>
+  </div>
+  <form >
+    <input type="text" ng-model="student.firstName" placeholder="First Name" />
+    <input type="text" ng-model="student.lastName" placeholder="Last Name" />
+    <input type="text" ng-model="student.average" placeholder="Average Grade" />
+    <input type="text" ng-model="student.referrals" placeholder="Behavior Referrals" />
+    <button ng-click='addStudent(student)'>submit</button>
+  </form>
 </div>
 
 <pre>
-  {{thisClass}}
+  {{ classStudents.data | json }}
 </pre>

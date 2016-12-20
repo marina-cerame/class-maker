@@ -45,6 +45,7 @@ var ClassSchema = new mongoose.Schema({
 });
 
 var StudentSchema = new mongoose.Schema({
+  teacherName: String,
   className: String,
   firstName: String,
   lastName: String,
@@ -119,4 +120,40 @@ app.post('/api/classrooms/classes', function(req, res, next) {
       console.log('FOUND CLASSES ', classes);
       res.json(classes);
     });
+});
+
+    // STUDENTS =================================
+var createStudent = Q.nbind(Student.create, Student);
+var getStudents = Q.nbind(Student.find, Student);
+
+// className: String,
+// firstName: String,
+// lastName: String,
+// average: Number,
+// referrals: Number
+
+app.post('/api/students/addStudent', function(req, res, next) {
+  var teacherName = req.body.teacherName;
+  var className = req.body.className;
+  var firstName = req.body.firstName;
+  var lastName = req.body.lastName;
+  var average = req.body.average;
+  var referrals = req.body.referrals;
+
+  createStudent({
+    teacherName: teacherName,
+    className: className,
+    firstName: firstName,
+    lastName: lastName,
+    average: average,
+    referrals: referrals
+  })
+  .then(function(student) {
+    console.log('STUDENT MADE', student);
+    getStudents({className: className})
+      .then(function(students) {
+        console.log('FOUND STUDENTS', students);
+        res.send(students);
+      });
+  });
 });

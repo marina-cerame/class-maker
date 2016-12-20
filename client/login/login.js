@@ -1,7 +1,7 @@
 console.log('LOGIN.JS LOADED');
 
 angular.module('classMaker.login', [])
-  .controller('loginController', function ($scope, $window, $location, $http) {
+  .controller('loginController', function ($scope, $window, $location, $http, $rootScope) {
     $scope.user = {};
     $scope.errorMessage = '';
 
@@ -14,6 +14,8 @@ angular.module('classMaker.login', [])
       })
       .then(function(result) {
         console.log(result);
+        $rootScope.thisUser = user.username;
+        console.log($rootScope.thisUser, 'THIS IS THE LOGGED IN USER');
         $location.path('/classes');
       });
     };
@@ -30,6 +32,8 @@ angular.module('classMaker.login', [])
         .then(function(result) {
           console.log('HTTP LOGIN RESULT', result);
           if (result.data !== '' && result.data.password === inputpass) {
+            $rootScope.thisUser = user.username;
+            console.log($rootScope.thisUser, 'THIS IS THE LOGGED IN USER');
             $location.path('/classes');
           } else {
             $scope.errorMessage = 'Incorrect username or password. Please try again.';

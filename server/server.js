@@ -17,7 +17,7 @@ mongoose.connect(process.env.MONGODB_URI, function(error) {
 
 // mongoose.connect('mongodb://localhost/mvp');
 
-app.use(express.static(__dirname + '/client'));
+app.use(express.static('client'));
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({'exteded': 'true'}));
 app.use(bodyParser.json());
@@ -27,6 +27,6 @@ app.listen(port);
 console.log('App listening on port ' + port);
 
 
-app.get('/', function(request, response) {
-  response.sendfile('./client/index.html');
-});
+// app.get('/', function(request, response) {
+//   response.sendfile('./client/index.html');
+// });

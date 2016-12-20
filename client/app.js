@@ -1,5 +1,4 @@
-console.log('PLEASE FOR THE LOVE OF GOD WORK');
-
+console.log('APP.JS IS WORKING');
 
 angular.module('classMaker', ['ngRoute'])
   .config(function ($routeProvider, $httpProvider) {

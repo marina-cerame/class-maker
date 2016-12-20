@@ -105,10 +105,18 @@ app.post('/api/classrooms/newclass', function(req, res, next) {
   })
     .then(function(newClass) {
       console.log('NEW CLASS CREATED', newClass);
-      getClasses()
+      getClasses({teacherName: teacherName})
         .then(function(classes) {
           res.json(classes);
         });
     });
+});
 
+app.post('/api/classrooms/classes', function(req, res, next) {
+  var teacherName = req.body.teacher;
+  getClasses({teacherName: teacherName})
+    .then(function(classes) {
+      console.log('FOUND CLASSES ', classes);
+      res.json(classes);
+    });
 });

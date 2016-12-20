@@ -1,5 +1,6 @@
 <div ng-controller="classController">
   <h2>CLASSES</h2>
+  <button ng-click="getClasses()">Get Your Classes</button>
   <h4>Add A Class</h4>
   <form >
     <input type="text" ng-model="classData.name" placeholder="Class Name" /> <br />
@@ -8,7 +9,7 @@
 
   <div>
     <div ng-repeat="class in allClasses.data">
-      {{class.name}}
+      <span ng-click="openClassroom(class.name)">{{class.name}}</span>
     </div>
   </div>
 </div>

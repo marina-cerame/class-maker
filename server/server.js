@@ -57,6 +57,7 @@ var Student = mongoose.model('students', StudentSchema);
 // ROUTES ========================================
 var Q = require('q');
 var createUser = Q.nbind(User.create, User);
+var findUser = Q.nbind(User.findOne, User);
 
 app.post('/api/users/signup', function(req, res, next) {
   var username = req.body.username;
@@ -69,17 +70,6 @@ app.post('/api/users/signup', function(req, res, next) {
   })
     .then(function(user) {
       console.log(user);
-      res.redirect('classes/classes.html');
+      res.send('/classes.html');
     });
-
-  // User.create({
-  //   username: username,
-  //   password: password
-  // }, function(err, data) {
-  //   console.log('hello');
-  //   if (err) {
-  //     console.log('USER CREATE ERROR', err);
-  //   }
-  //   res.send('HELLO');
-  // });
 });

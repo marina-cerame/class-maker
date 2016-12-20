@@ -10,6 +10,10 @@ angular.module('classMaker.login', [])
         method: 'POST',
         url: '/api/users/signup',
         data: user
+      })
+      .then(function(result) {
+        console.log(result);
+        $location.path('/classes');
       });
     };
   });

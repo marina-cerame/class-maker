@@ -6,5 +6,8 @@ angular.module('classMaker', ['ngRoute'])
     $routeProvider
       .when('/login', {
         templateUrl: 'login/login.html'
+      })
+      .when('/signup', {
+        templateUrl: 'login/signup.html'
       });
   });

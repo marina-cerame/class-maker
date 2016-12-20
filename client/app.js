@@ -9,5 +9,8 @@ angular.module('classMaker', ['ngRoute'])
       })
       .when('/signup', {
         templateUrl: 'login/signup.html'
+      })
+      .when('/classes', {
+        templateUrl: 'classes/classes.html'
       });
   });

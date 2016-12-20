@@ -92,6 +92,7 @@ app.post('/api/users/login', function(req, res, next) {
 });
     // CLASSES ==================================
 var createClass = Q.nbind(Classroom.create, Classroom);
+var getClasses = Q.nbind(Classroom.find, Classroom);
 
 app.post('/api/classrooms/newclass', function(req, res, next) {
   console.log('HERE');
@@ -104,7 +105,10 @@ app.post('/api/classrooms/newclass', function(req, res, next) {
   })
     .then(function(newClass) {
       console.log('NEW CLASS CREATED', newClass);
-      res.send(newClass);
+      getClasses()
+        .then(function(classes) {
+          res.json(classes);
+        });
     });
 
 });

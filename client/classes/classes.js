@@ -15,6 +15,7 @@ angular.module('classMaker.class', [])
       })
       .then(function(result) {
         console.log('NEW CLASS RESULT', result);
+        $scope.allClasses = result;
       });
     };
 

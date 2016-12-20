@@ -12,5 +12,8 @@ angular.module('classMaker', ['ngRoute'])
       })
       .when('/classes', {
         templateUrl: 'classes/classes.html'
+      })
+      .when('/classroom', {
+        templateUrl: 'classroom/classroom.html'
       });
   });

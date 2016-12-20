@@ -17,7 +17,7 @@ mongoose.connect(process.env.MONGODB_URI, function(error) {
 
 // mongoose.connect('mongodb://localhost/mvp');
 
-app.use(express.static('client'));
+// app.use(express.static('client'));
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({'exteded': 'true'}));
 app.use(bodyParser.json());

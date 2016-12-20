@@ -40,10 +40,12 @@ var UserSchema = new mongoose.Schema({
 });
 
 var ClassSchema = new mongoose.Schema({
+  teacherName: String,
   name: String
 });
 
 var StudentSchema = new mongoose.Schema({
+  className: String,
   firstName: String,
   lastName: String,
   average: Number,
@@ -54,8 +56,10 @@ var User = mongoose.model('users', UserSchema);
 var Classroom = mongoose.model('classrooms', ClassSchema);
 var Student = mongoose.model('students', StudentSchema);
 
-// ROUTES ========================================
+// ROUTES =======================================
 var Q = require('q');
+
+    // USERS ====================================
 var createUser = Q.nbind(User.create, User);
 var findUser = Q.nbind(User.findOne, User);
 
@@ -85,4 +89,22 @@ app.post('/api/users/login', function(req, res, next) {
       res.send(user);
 
     });
+});
+    // CLASSES ==================================
+var createClass = Q.nbind(Classroom.create, Classroom);
+
+app.post('/api/classrooms/newclass', function(req, res, next) {
+  console.log('HERE');
+  var className = req.body.name;
+  var teacherName = req.body.teacher;
+  console.log('CREATING CLASS');
+  createClass({
+    teacherName: teacherName,
+    name: className
+  })
+    .then(function(newClass) {
+      console.log('NEW CLASS CREATED', newClass);
+      res.send(newClass);
+    });
+
 });

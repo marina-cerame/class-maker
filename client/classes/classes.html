@@ -1,8 +1,12 @@
 <div>
   <h2>CLASSES</h2>
   <h4>Add A Class</h4>
-
+  <form ng-controller="classController">
+    <input type="text" ng-model="classData.name" placeholder="Class Name" /> <br />
+    <button ng-click='newClass(classData)'>submit</button>
+  </form>
   <pre>
+    {{classData.name | json}}
     {{thisUser | json}}
   </pre>
 </div>

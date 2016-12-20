@@ -1,6 +1,6 @@
 console.log('APP.JS IS WORKING');
 
-angular.module('classMaker', ['classMaker.login', 'ngRoute'])
+angular.module('classMaker', ['classMaker.login', 'classMaker.class', 'ngRoute'])
   .config(function ($routeProvider, $httpProvider) {
     $routeProvider
       .when('/login', {

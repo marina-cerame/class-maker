@@ -1,8 +1,8 @@
-<div ng-controller='classroomController'>
+<div class="center-block" ng-controller='classroomController'>
   <h2>CLASSROOM</h2>
   <h4>{{thisClass}}</h4>
 
-  <div id="classlist">
+  <div class="center-block" id="classlist">
     <button ng-click="getStudents()">Get Students</button>
     <table border='1px'>
       <tr>
@@ -17,7 +17,7 @@
       </tr>
     </table>
   </div>
-  <form >
+  <form class="center-block">
     <input type="text" ng-model="student.firstName" placeholder="First Name" />
     <input type="text" ng-model="student.lastName" placeholder="Last Name" />
     <input type="text" ng-model="student.average" placeholder="Average Grade" />
@@ -30,12 +30,12 @@
   <button ng-click="setOrder('average')">Average</button>
   <button ng-click="setOrder('referrals')">Referrals</button>
 
-  <form>
+  <form class="center-block">
       <input type="text" ng-model="rows" placeholder="Number of rows"/>
       <button ng-click="setRows(rows)">Make Chart</button>
   </form>
 
-  <div id="seatingChart"  ng-style="seatingChart">
+  <div class="center-block" id="seatingChart"  ng-style="seatingChart">
     <div ng-repeat="eachStudent in classStudents.data | orderBy:sortOrder" ng-style='desks'>
       {{eachStudent.firstName}} {{eachStudent.lastName}}
     </div>

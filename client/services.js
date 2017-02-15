@@ -1,13 +1,13 @@
+/* global angular */
+
 angular.module('classMaker.services', [])
-  .factory('Login', function($http, $location, $window) {
-    var signup = function (user) {
+  .factory('Login', function ($http) {
+    const signup = function (user) {
       return $http({
         method: 'POST',
         url: '/api/users/signup',
-        data: user
+        data: user,
       });
     };
-    return {
-      signup: signup
-    };
+    return { signup };
   });

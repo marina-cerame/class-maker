@@ -1,4 +1,4 @@
-console.log('LOGIN.JS LOADED');
+/* global angular */
 
 angular.module('classMaker.login', [])
   .controller('loginController', function ($scope, $window, $location, $http, $rootScope) {
@@ -6,24 +6,20 @@ angular.module('classMaker.login', [])
     $scope.errorMessage = '';
 
     $scope.signup = function (user) {
-      console.log('IN LOGIN CONTROLLER', user);
       $http({
         method: 'POST',
         url: '/api/users/signup',
-        data: user
+        data: user,
       })
-      .then(function(result) {
-        console.log(result);
+      .then(function (result) {
         $rootScope.thisUser = user.username;
-        console.log($rootScope.thisUser, 'THIS IS THE LOGGED IN USER');
         $location.path('/classes');
       });
     };
 
     $scope.login = function(user) {
-      console.log('IN LOGIN CONTROLLER', user);
-      let inputuser = user.username;
-      let inputpass = user.password;
+      const inputuser = user.username;
+      const inputpass = user.password;
       $http({
         method: 'POST',
         url: '/api/users/login',

@@ -1,10 +1,10 @@
 <div class="center-block" ng-controller='classroomController'>
-  <h2>CLASSROOM</h2>
+  <h2>Classroom</h2>
   <h4>{{thisClass}}</h4>
 
   <div class="center-block" id="classlist">
     <button ng-click="getStudents()">Get Students</button>
-    <table border='1px'>
+    <table class="table">
       <tr>
         <td><b>Name</b></td>
         <td><b>Average</b></td>
@@ -17,22 +17,32 @@
       </tr>
     </table>
   </div>
-  <form class="center-block">
-    <input type="text" ng-model="student.firstName" placeholder="First Name" />
-    <input type="text" ng-model="student.lastName" placeholder="Last Name" />
-    <input type="text" ng-model="student.average" placeholder="Average Grade" />
-    <input type="text" ng-model="student.referrals" placeholder="Behavior Referrals" />
-    <button ng-click='addStudent(student)'>submit</button>
+  <form class="container">
+    <div class="form-group  col-md-2">
+      <input class="form-control" type="text" ng-model="student.firstName" placeholder="First Name" />
+    </div>
+    <div class="form-group  col-md-2">
+      <input class="form-control" type="text" ng-model="student.lastName" placeholder="Last Name" />
+    </div>
+    <div class="form-group col-md-2">
+      <input class="form-control" type="text" ng-model="student.average" placeholder="Average Grade" />
+    </div>
+    <div class="form-group col-md-2">
+      <input class="form-control" type="text" ng-model="student.referrals" placeholder="Behavior Referrals" />
+    </div>
+    <button class="btn btn-default" ng-click='addStudent(student)'>submit</button>
   </form>
+  <br /><br />
   Sort By:
-  <button ng-click="setOrder('firstName')">First Name</button>
-  <button ng-click="setOrder('lastName')">Last Name</button>
-  <button ng-click="setOrder('average')">Average</button>
-  <button ng-click="setOrder('referrals')">Referrals</button>
+  <button class="btn btn-default" ng-click="setOrder('firstName')">First Name</button>
+  <button class="btn btn-default" ng-click="setOrder('lastName')">Last Name</button>
+  <button class="btn btn-default" ng-click="setOrder('average')">Average</button>
+  <button class="btn btn-default" ng-click="setOrder('referrals')">Referrals</button>
+  <br /><br />
 
-  <form class="center-block">
-      <input type="text" ng-model="rows" placeholder="Number of rows"/>
-      <button ng-click="setRows(rows)">Make Chart</button>
+  <form class="col-md-2">
+      <input class="form-control" type="text" ng-model="rows" placeholder="Number of rows"/>
+      <button class="btn btn-default" ng-click="setRows(rows)">Make Chart</button>
   </form>
 
   <div class="center-block" id="seatingChart"  ng-style="seatingChart">

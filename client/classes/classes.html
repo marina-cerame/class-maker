@@ -1,15 +1,18 @@
 <div ng-controller="classController">
-  <h2>CLASSES</h2>
-  <button ng-click="getClasses()">Get Your Classes</button>
+  <h2>Your Classes</h2>
+  <button class="btn btn-default" ng-click="getClasses()">Get Your Classes</button>
   <h4>Add A Class</h4>
-  <form >
-    <input type="text" ng-model="classData.name" placeholder="Class Name" /> <br />
-    <button ng-click='newClass(classData)'>submit</button>
+  <form class="container">
+    <div class="form-group col-md-6">
+      <input class="form-control" type="text" ng-model="classData.name" placeholder="Class Name" />
+    </div>
+    <button class="btn btn-default col-md-1" ng-click='newClass(classData)'>Submit</button>
   </form>
 
   <div>
+    <i>Click a class to open your classroom</i>
     <div ng-repeat="class in allClasses.data">
-      <span ng-click="openClassroom(class.name)">{{class.name}}</span>
+      <span ng-click="openClassroom(class.name)"><h4>{{class.name}}</h4></span>
     </div>
   </div>
 </div>

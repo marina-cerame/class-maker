@@ -25,11 +25,10 @@ angular.module('classMaker.login', [])
         url: '/api/users/login',
         data: user
       })
-        .then(function(result) {
+        .then(function (result) {
           console.log('HTTP LOGIN RESULT', result);
           if (result.data !== '' && result.data.password === inputpass) {
             $rootScope.thisUser = user.username;
-            console.log($rootScope.thisUser, 'THIS IS THE LOGGED IN USER');
             $location.path('/classes');
           } else {
             $scope.errorMessage = 'Incorrect username or password. Please try again.';

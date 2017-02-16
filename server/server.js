@@ -3,11 +3,10 @@ var app = express();
 var mongoose = require('mongoose');
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
-var methodOverride = require('method-override');
 
 var port = process.env.PORT || 8080;
 
-mongoose.connect(process.env.MONGODB_URI, function(error) {
+mongoose.connect(process.env.MONGODB_URI || 'localhost', (error) => {
   if (error) {
     console.log('MONGO URI ERROR', error);
   } else {
@@ -15,23 +14,17 @@ mongoose.connect(process.env.MONGODB_URI, function(error) {
   }
 });
 
-// require('./routes.js')(app, express);
-
-// mongoose.connect('mongodb://localhost/mvp');
 
 app.use(express.static('client'));
 app.use(morgan('dev'));
-app.use(bodyParser.urlencoded({'exteded': 'true'}));
+app.use(bodyParser.urlencoded({ 'exteded': 'true' }));
 app.use(bodyParser.json());
-app.use(bodyParser.json({ type: 'application/vnd.api+json'}));
+app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 
 app.listen(port);
+
 console.log('App listening on port ' + port);
 
-
-// app.get('/', function(request, response) {
-//   response.sendfile('./client/index.html');
-// });
 
 // SCHEMAS ========================================
 var UserSchema = new mongoose.Schema({
@@ -96,14 +89,9 @@ var createClass = Q.nbind(Classroom.create, Classroom);
 var getClasses = Q.nbind(Classroom.find, Classroom);
 
 app.post('/api/classrooms/newclass', function(req, res, next) {
-  console.log('HERE');
-  var className = req.body.name;
-  var teacherName = req.body.teacher;
-  console.log('CREATING CLASS');
-  createClass({
-    teacherName: teacherName,
-    name: className
-  })
+  const className = req.body.name;
+  const teacherName = req.body.teacher;
+  createClass({ teacherName, name: className })
     .then(function(newClass) {
       console.log('NEW CLASS CREATED', newClass);
       getClasses({teacherName: teacherName})
